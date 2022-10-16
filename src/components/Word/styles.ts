@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const WordContainer = styled.div`
   display: flex;
-  align-itens: center;
+  align-items: center;
   justify-content: center;
   margin-bottom: 16px;
 `;

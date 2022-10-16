@@ -1,3 +1,4 @@
+import Gallows from "./components/Gallows";
 import Keyboard from "./components/Keyboard";
 import Word from "./components/Word";
 import { GlobalStyle } from "./styles/global";
@@ -8,6 +9,8 @@ function App() {
       <GlobalStyle />
 
       <h1>Hangman Game</h1>
+
+      <Gallows />
       <Word />
       <Keyboard />
     </>
