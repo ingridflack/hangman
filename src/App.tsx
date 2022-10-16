@@ -1,8 +1,16 @@
+import Keyboard from "./components/Keyboard";
+import Word from "./components/Word";
+import { GlobalStyle } from "./styles/global";
+
 function App() {
   return (
-    <div>
+    <>
+      <GlobalStyle />
+
       <h1>Hangman Game</h1>
-    </div>
+      <Word />
+      <Keyboard />
+    </>
   );
 }
 
