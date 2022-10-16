@@ -1,3 +1,4 @@
+import ActionButton from "./components/Buttons/ActionButton";
 import Gallows from "./components/Gallows";
 import Keyboard from "./components/Keyboard";
 import Word from "./components/Word";
@@ -9,7 +10,7 @@ function App() {
       <GlobalStyle />
 
       <h1>Hangman Game</h1>
-
+      <ActionButton />
       <Gallows />
       <Word />
       <Keyboard />
