@@ -5,6 +5,13 @@ export const Button = styled.button`
   padding: 5px 20px;
   border: 1px solid #ccc;
   transition: background-color 300ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-right: 4px;
+  }
 
   &:hover,
   &:focus {

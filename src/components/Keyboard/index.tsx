@@ -1,5 +1,3 @@
-import LetterButton from "../Buttons/LetterButton";
-
 import * as S from "./styles";
 
 const LETTER_OPTIONS = [
@@ -8,13 +6,20 @@ const LETTER_OPTIONS = [
   ["Z", "X", "C", "V", "B", "N", "M"],
 ];
 
-const Keyboard = () => {
+interface KeyboardProps {
+  attempts: string[];
+  onClick: (letter: string) => void;
+}
+
+const Keyboard = ({ attempts, onClick }: KeyboardProps) => {
   return (
     <S.KeyboardContainer>
       {LETTER_OPTIONS.map((row, index) => (
         <S.Row key={index}>
-          {row.map((item) => (
-            <LetterButton key={item}>{item}</LetterButton>
+          {row.map((letter) => (
+            <S.LetterButton onClick={() => onClick(letter)} key={letter}>
+              {letter}
+            </S.LetterButton>
           ))}
         </S.Row>
       ))}

@@ -1,9 +1,16 @@
 import * as S from "./styles";
 
-const Word = () => {
+interface WordProps {
+  word?: string;
+}
+
+const Word = ({ word }: WordProps) => {
+  console.log(word);
   return (
     <S.WordContainer>
-      <span>__ __ __ __ __ __</span>
+      {word?.split("").map((letter, index) => (
+        <S.Letter key={`${letter}-${index}`}>{letter}</S.Letter>
+      ))}
     </S.WordContainer>
   );
 };
