@@ -8,7 +8,11 @@ export const WordContainer = styled.div`
 `;
 
 export const Letter = styled.div`
-  padding: 8px 12px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid black;
 
   & + & {
