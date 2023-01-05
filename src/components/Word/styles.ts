@@ -4,7 +4,6 @@ export const WordContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
 `;
 
 export const Letter = styled.div`

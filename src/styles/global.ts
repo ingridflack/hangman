@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { WordContainer } from "../components/Word/styles";
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -19,4 +20,27 @@ button {
 body {
 background-color: #f6f6ef;
 }
+
+#root {
+  height: 100vh;
+}
+`;
+
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  h1 {
+    margin: 20px 0;
+  }
+`;
+
+export const WordWrapper = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+  align-items: flex-end;
 `;

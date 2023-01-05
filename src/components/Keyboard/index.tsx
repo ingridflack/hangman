@@ -37,6 +37,7 @@ const Keyboard = ({ word, attempts, onClick }: KeyboardProps) => {
                 onClick={() => onClick(letter)}
                 key={letter}
                 state={getLetterState(letter)}
+                disabled={attempts.includes(letter)}
               >
                 {letter}
               </S.LetterButton>

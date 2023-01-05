@@ -2,6 +2,7 @@ import { useCallback, useEffect, useReducer } from "react";
 import words from "../words.json";
 
 export const MAX_ATTEMPTS = 6;
+
 export const initialGameState = {
   word: "",
   normalizedWord: "",
@@ -29,6 +30,10 @@ export function hangmanReducer(state: any, action: any) {
       return {
         ...state,
         wrong_attempts: state.wrong_attempts + 1,
+      };
+    case "reset_state":
+      return {
+        state: initialGameState,
       };
     default:
       return state;
@@ -70,9 +75,14 @@ export function useGameLogic() {
     handleWrongAttempts(letter);
   };
 
+  const handleResetState = () => {
+    dispatch({ type: "reset_state" });
+  };
+
   return {
     state,
     onCategoryChange: handleChooseCategory,
     onNewAttempt: handleAttempt,
+    onResetGame: handleResetState,
   };
 }
