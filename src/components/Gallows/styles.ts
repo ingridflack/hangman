@@ -50,6 +50,7 @@ export const Character = styled.div`
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
+  width: 40px;
 `;
 
 export const Head = styled.div`

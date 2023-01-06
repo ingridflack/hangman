@@ -1,5 +1,5 @@
 {
-  "animals": [
+  "animal": [
     "abelha",
     "aranha",
     "avestruz",
@@ -55,7 +55,7 @@
     "raposa",
     "zebra"
   ],
-  "fruits": [
+  "fruta": [
     "abacate",
     "abacaxi",
     "ameixa",
@@ -81,7 +81,7 @@
     "melancia",
     "pera"
   ],
-  "countries": [
+  "país": [
     "afeganistão",
     "áfrica do Sul",
     "albânia",
@@ -106,7 +106,7 @@
     "méxico",
     "noruega"
   ],
-  "objects": [
+  "objeto": [
     "algema",
     "alicate",
     "almofada",
