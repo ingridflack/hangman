@@ -34,13 +34,19 @@ export const MainContainer = styled.div`
   height: 100%;
 
   h1 {
-    margin: 20px 0;
+    margin: 100px 0;
   }
 `;
 
 export const WordWrapper = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: column;
   width: 100%;
+  justify-content: space-between;
   align-items: flex-end;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: 20px;
 `;

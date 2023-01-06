@@ -39,7 +39,7 @@ export const LetterButton = styled.button<{ state: keyof typeof LETTER_STATE }>`
             background-color: red;
           }
           &:disabled {
-            cursor: not-allowed;
+            cursor: default;
           }
         `;
       case LETTER_STATE.POSITIVE:
@@ -49,7 +49,7 @@ export const LetterButton = styled.button<{ state: keyof typeof LETTER_STATE }>`
             background-color: green;
           }
           &:disabled {
-            cursor: not-allowed;
+            cursor: default;
           }
         `;
       default:

@@ -3,11 +3,10 @@ import { useGameLogic } from "../useGameLogic";
 
 interface FinishMessageProps {
   message: string;
+  onResetGame: any;
 }
 
-const FinishMessage = ({ message }: FinishMessageProps) => {
-  const { onResetGame } = useGameLogic();
-
+const FinishMessage = ({ message, onResetGame }: FinishMessageProps) => {
   return (
     <div>
       {message}

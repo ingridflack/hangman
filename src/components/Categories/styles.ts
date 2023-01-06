@@ -5,6 +5,7 @@ export const CategoriesContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 50%;
 `;
 
 export const Title = styled.h3`

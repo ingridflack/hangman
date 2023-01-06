@@ -3,15 +3,19 @@ import Gallows from "./components/Gallows";
 import { MAX_ATTEMPTS, useGameLogic } from "./components/useGameLogic";
 import Keyboard from "./components/Keyboard";
 import Word from "./components/Word";
-import { GlobalStyle, MainContainer, WordWrapper } from "./styles/global";
+import {
+  GlobalStyle,
+  MainContainer,
+  WordWrapper,
+  Wrapper,
+} from "./styles/global";
 import FinishMessage from "./components/FinishMessage";
 
 // Investigar:
-// Por que o botão de jogar novamente não funciona?
 // Rever lógica da exibição das partes do corpo do boneco
 
 function App() {
-  const { state, onCategoryChange, onNewAttempt } = useGameLogic();
+  const { state, onCategoryChange, onNewAttempt, onResetGame } = useGameLogic();
 
   const { word, normalizedWord, attempts, category, wrong_attempts } = state;
 
@@ -29,7 +33,10 @@ function App() {
     if (won) {
       return (
         <MainContainer>
-          <FinishMessage message="Parabéns! Você ganhou." />
+          <FinishMessage
+            onResetGame={onResetGame}
+            message="Parabéns! Você ganhou."
+          />
         </MainContainer>
       );
     }
@@ -37,21 +44,27 @@ function App() {
     if (lost) {
       return (
         <MainContainer>
-          <FinishMessage message="Você perdeu!" />
+          <FinishMessage onResetGame={onResetGame} message="Você perdeu!" />
         </MainContainer>
       );
     }
 
     return (
       <MainContainer>
-        <WordWrapper>
+        <Wrapper>
           <Gallows wrongAttempts={wrong_attempts} />
-          <Word
-            attempts={attempts}
-            word={word}
-            normalizedWord={normalizedWord}
-          />
-        </WordWrapper>
+
+          <WordWrapper>
+            <p>
+              Categoria escolhida: <strong>{category}</strong>
+            </p>
+            <Word
+              attempts={attempts}
+              word={word}
+              normalizedWord={normalizedWord}
+            />
+          </WordWrapper>
+        </Wrapper>
         <Keyboard
           attempts={attempts}
           onClick={onNewAttempt}
@@ -65,7 +78,7 @@ function App() {
     <MainContainer>
       <GlobalStyle />
 
-      <h1>Hangman Game</h1>
+      <h1>Jogo da Forca</h1>
 
       <>{handleGameContent()}</>
     </MainContainer>

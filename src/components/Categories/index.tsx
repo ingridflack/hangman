@@ -5,28 +5,24 @@ import * as S from "./styles";
 const Categories = ({ onClick }: any) => {
   return (
     <S.CategoriesContainer>
-      <S.Title>Select a category:</S.Title>
+      <S.Title>Selecione a categoria:</S.Title>
       <S.ButtonsContainer>
         <ActionButton
-          text="Animals"
+          text="Animal"
           icon={FaKiwiBird}
-          onClick={onClick("animals")}
+          onClick={onClick("animal")}
         />
         <ActionButton
-          text="Fruits"
+          text="Fruta"
           icon={FaAppleAlt}
-          onClick={onClick("fruits")}
+          onClick={onClick("fruta")}
         />
         <ActionButton
-          text="Objects"
+          text="Objeto"
           icon={FaGlasses}
-          onClick={onClick("objects")}
+          onClick={onClick("objeto")}
         />
-        <ActionButton
-          text="Countries"
-          icon={FaMapSigns}
-          onClick={onClick("countries")}
-        />
+        <ActionButton text="País" icon={FaMapSigns} onClick={onClick("país")} />
       </S.ButtonsContainer>
     </S.CategoriesContainer>
   );

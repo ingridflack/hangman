@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import words from "../words.json";
 
 export const MAX_ATTEMPTS = 6;
@@ -12,29 +12,31 @@ export const initialGameState = {
 };
 
 const SELECT_CATEGORY = "select_category";
+const SET_WORD = "set_word";
+const NEW_ATTEMPT = "new_attempt";
+const WRONG_ATTEMPT = "wrong_attempt";
+const RESET_STATE = "reset_state";
 
 export function hangmanReducer(state: any, action: any) {
   switch (action.type) {
     case SELECT_CATEGORY:
       return { ...state, category: action.payload };
-    case "set_word":
+    case SET_WORD:
       const word = action.payload;
       const normalizedWord = word
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
 
       return { ...state, word, normalizedWord };
-    case "new_attempt":
+    case NEW_ATTEMPT:
       return { ...state, attempts: [...state.attempts, action.payload] };
-    case "wrong_attempt":
+    case WRONG_ATTEMPT:
       return {
         ...state,
         wrong_attempts: state.wrong_attempts + 1,
       };
-    case "reset_state":
-      return {
-        state: initialGameState,
-      };
+    case RESET_STATE:
+      return { ...initialGameState };
     default:
       return state;
   }
@@ -51,7 +53,7 @@ export function useGameLogic() {
       const randomIndex = Math.floor(Math.random() * categoryWords.length);
 
       dispatch({
-        type: "set_word",
+        type: SET_WORD,
         payload: categoryWords[randomIndex],
       });
     }
@@ -65,18 +67,18 @@ export function useGameLogic() {
     const isWrong = !normalizedWord.includes(letter);
 
     if (isWrong) {
-      dispatch({ type: "wrong_attempt" });
+      dispatch({ type: WRONG_ATTEMPT });
     }
   };
 
   const handleAttempt = (letter: string) => {
-    dispatch({ type: "new_attempt", payload: letter.toLowerCase() });
+    dispatch({ type: NEW_ATTEMPT, payload: letter.toLowerCase() });
 
     handleWrongAttempts(letter);
   };
 
   const handleResetState = () => {
-    dispatch({ type: "reset_state" });
+    dispatch({ type: RESET_STATE });
   };
 
   return {
