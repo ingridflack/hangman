@@ -1,5 +1,4 @@
 import ActionButton from "../Buttons/ActionButton";
-import { useGameLogic } from "../useGameLogic";
 
 interface FinishMessageProps {
   message: string;
